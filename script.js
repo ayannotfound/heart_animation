@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d", { alpha: true }); // Ensure alpha for transparency
+    const ctx = canvas.getContext("2d", { alpha: true }); 
 
     if (!canvas || !ctx) return;
 
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
             this.radius = 8;
             this.friction = 0.9;
             this.spring = 0.03;
-            this.repelStrength = 1.0; // Increased for stronger effect
-            this.maxDistance = 100; // Increased further for larger canvas
+            this.repelStrength = 1.0; 
+            this.maxDistance = 100;
         }
 
         update() {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const dy = this.y - mouseY;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < this.maxDistance && distance > 0) { // Added distance > 0 to avoid division issues
+            if (distance < this.maxDistance && distance > 0) { 
                 const angle = Math.atan2(dy, dx);
                 const force = (this.maxDistance - distance) / this.maxDistance;
                 this.vx += Math.cos(angle) * force * this.repelStrength;
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas directly
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
         ctx.fillStyle = config.background;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
